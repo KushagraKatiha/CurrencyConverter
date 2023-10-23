@@ -3,18 +3,16 @@ import "./Converter.css"
 
 function Converter({ heading, list_one, list_two }) {
     
-    
-    
-    
-    // let findOption = useCallback(()=>{ 
-    //     let option = list_one[0];
-    //     // option = document.querySelector(".option1").value
-    //     console.log(option);
-    //     return option
-    // }, [])
+    // const [option, setOption] = useState("Hello")
+
+    // const handleOption = useCallback(()=>{
+    //     const option1 = document.querySelector(".option1")
+    //     console.log(option1.value);
+    //     setOption(option1.value)
+    // }, [setOption])
 
 
-    // useEffect(()=>{ findOption() }, [findOption])
+    // useEffect(()=>{handleOption()}, [setOption])
 
     return (
         <>
@@ -27,24 +25,27 @@ function Converter({ heading, list_one, list_two }) {
 
                 {/* Currency Change Form */}
                     <div className="form">
-                        <label htmlFor="firstip" className="firstinput">Convert from : </label>
+                        <div className="option-box">
+                            <label htmlFor="firstip" className="firstinput">Convert from :</label>                         
+
+                            <select className="option1">
+                                {list_one.map((el, idx)=>{
+                                    return <option  key={idx}>{el}</option>
+                                })}
+                            </select>
+                        </div>
+                        
                         <br />
 
-                        <select className="option1">
-                            {list_one.map((el, idx)=>{
-                                return <option key={idx}>{el}</option>
-                            })}
-                        </select>
-                        <br />
+                       <div className="option-box">
+                            <label  htmlFor="firstip" className="secondinput">Convert to : </label>
 
-                        <label  htmlFor="firstip" className="secondinput">Convert to : </label>
-                        <br />
-
-                        <select className="option2">
-                        {list_two.map((el, idx)=>{
-                                return <option key={idx}>{el}</option>
-                            })}
-                        </select>
+                            <select className="option2">
+                            {list_two.map((el, idx)=>{
+                                    return <option value={el} key={idx}>{el}</option>
+                                })}
+                            </select>
+                        </div>
                         <br />
 
 
