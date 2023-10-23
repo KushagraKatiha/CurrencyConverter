@@ -16,8 +16,8 @@ async  function fetchData(){
     })
 
 }
-
 fetchData()
+
 
   let obj = JSON.parse(localStorage.getItem('data'))
 

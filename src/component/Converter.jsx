@@ -7,7 +7,7 @@ function Converter({ heading, list_one, value_list }) {
     const [result, setResult] = useState("00")
     const [curr1, setCurr1] = useState(list_one[0])
     const [curr2, setCurr2] = useState(list_one[0])
-
+    
     const changeText = () => {
         let inputAmount = document.querySelector(".amount").value
         setAmount(inputAmount)
@@ -100,6 +100,7 @@ function Converter({ heading, list_one, value_list }) {
             </div>
         </>
     )
+
 }
 
 export default Converter
