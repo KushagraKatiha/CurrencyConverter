@@ -28,7 +28,7 @@ function Converter({ heading, list_one, value_list }) {
         
         let finalResult = ((1/rateOfFrom) * inputAmount ) * rateOfTo
 
-        setResult(finalResult.toPrecision(3));
+        setResult(finalResult.toFixed(2));
 
 
     }
