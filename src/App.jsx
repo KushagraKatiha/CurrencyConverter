@@ -29,15 +29,12 @@ fetchData()
     currRate.push(obj.data[key])
   }
 
-  console.log(currRate);
 
   for( let key in obj.data){
     countries.push(key)
   }
 
-  console.log(
-    countries
-  );
+
 
   return (
     <>

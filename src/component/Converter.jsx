@@ -11,16 +11,12 @@ function Converter({ heading, list_one, value_list }) {
     const changeText = () => {
         let inputAmount = document.querySelector(".amount").value
         setAmount(inputAmount)
-        console.log("Amount",inputAmount);
-
+ 
         let chngFrom = document.querySelector(".option1").value
         setCurr1(chngFrom)
-        console.log("from value: ", chngFrom);
-
+ 
         let chngTo = document.querySelector(".option2").value
         setCurr2(chngTo)
-        console.log("to value: ", chngTo);
-
 
         // Formula to Change the Rates
 
