@@ -1,18 +1,41 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Converter.css"
 
-function Converter({ heading, list_one, list_two }) {
+function Converter({ heading, list_one, value_list }) {
     
-    // const [option, setOption] = useState("Hello")
+    const [amount, setAmount] = useState("00")
+    const [result, setResult] = useState("00")
+    const [curr1, setCurr1] = useState(list_one[0])
+    const [curr2, setCurr2] = useState(list_one[0])
 
-    // const handleOption = useCallback(()=>{
-    //     const option1 = document.querySelector(".option1")
-    //     console.log(option1.value);
-    //     setOption(option1.value)
-    // }, [setOption])
+    const changeText = () => {
+        let inputAmount = document.querySelector(".amount").value
+        setAmount(inputAmount)
+        console.log("Amount",inputAmount);
+
+        let chngFrom = document.querySelector(".option1").value
+        setCurr1(chngFrom)
+        console.log("from value: ", chngFrom);
+
+        let chngTo = document.querySelector(".option2").value
+        setCurr2(chngTo)
+        console.log("to value: ", chngTo);
 
 
-    // useEffect(()=>{handleOption()}, [setOption])
+        // Formula to Change the Rates
+
+        let valueOfFrom = list_one.indexOf(chngFrom)
+        let rateOfFrom = value_list[valueOfFrom]
+        
+        let valueOfTo = list_one.indexOf(chngTo)
+        let rateOfTo = value_list[valueOfTo]
+        
+        let finalResult = ((1/rateOfFrom) * inputAmount ) * rateOfTo
+
+        setResult(finalResult.toPrecision(3));
+
+
+    }
 
     return (
         <>
@@ -41,7 +64,7 @@ function Converter({ heading, list_one, list_two }) {
                             <label  htmlFor="firstip" className="secondinput">Convert to : </label>
 
                             <select className="option2">
-                            {list_two.map((el, idx)=>{
+                            {list_one.map((el, idx)=>{
                                     return <option value={el} key={idx}>{el}</option>
                                 })}
                             </select>
@@ -54,16 +77,16 @@ function Converter({ heading, list_one, list_two }) {
 
                             {/* Amount-Box */}
                             <div className="amount-box">
-                                <label htmlFor="ip2" className="quantity">Amount</label>
+                                <label htmlFor="ip2" className="quantity" >Amount</label>
                                 <br />
-                                <input type="text" />
+                                <input type="text" placeholder="00" className="amount"/>
                                 <br />
                             </div>
 
                             {/* Result-Box */}
                             <div className="result-box">
                                 <label className="get" >Result</label>
-                            <p className="result"></p>
+                            <p className="result" >{result}</p>
                             </div>
 
                             {/* Amount and Result Ends */}
@@ -72,9 +95,10 @@ function Converter({ heading, list_one, list_two }) {
 
                         {/* Currency Change Box  Ends */}
                     </div>
-                <button className="submit">Convert</button>
+                <button onClick={changeText} className="submit">Convert</button>
+                <hr />
 
-                <h2>100 GBP is equal to NaN USD</h2>
+                <h2>{`${amount || "00"} ${curr1} will be ${result} ${curr2}`}</h2>
         
         {/* Main-Box Ends */}
             </div>

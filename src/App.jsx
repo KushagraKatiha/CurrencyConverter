@@ -23,14 +23,26 @@ fetchData()
 
   let countries = []
 
+  let currRate = []
+
+  for (let key in obj.data){
+    currRate.push(obj.data[key])
+  }
+
+  console.log(currRate);
+
   for( let key in obj.data){
     countries.push(key)
   }
 
+  console.log(
+    countries
+  );
+
   return (
     <>
     <div className='wrapper'>
-        <Converter heading={"Currency Converter"} list_one={countries} list_two={countries} />
+        <Converter heading={"Currency Converter"} list_one={countries} value_list={currRate} />
      </div>
     </>
   )

@@ -43,6 +43,7 @@ select{
     height: 30px;
     border: 1px solid #000000;
     border-radius: 3px;
+    outline: none;
 }
 
 input{
@@ -50,17 +51,21 @@ input{
     height: 20px;
     border: 1px solid #000000;
     border-radius: 3px;
+    outline: none;
 }
 
 .result{
     margin: 0px;
-    padding: 0px;
+    padding: 2px;
+    font-size: 14px;
     width: 140px;
     height: 20px;
     border: 1px solid #000000;
     border-radius: 3px;
     background-color: #fff;
     color: #000000;
+    overflow: hidden;
+    padding: 2px 2px;
 }
 
 .form2{
@@ -81,4 +86,49 @@ button{
     font-weight: 600;
     color: #ffffff;
     background-color: #0f61cd;
+}
+
+@media screen and (max-width: 600px){
+    .main{
+        width: 70%;
+        height: 60%;
+        gap: 10px;
+        background-color: #000000;
+        color: #fff;
+        box-shadow: 0 0 50px white;
+        padding: 50px 20px;
+    }
+    .form{
+        width: 80%;
+        display: block;
+    }
+
+    .option-box{
+        display: block;
+    }
+   
+    .form2{
+        display: block;
+    }
+
+    .result{
+        width: 83%;
+    }
+
+    .result-box{
+        gap: 20px;
+    }
+
+    h2{
+        font-size: 15px;
+        background-color: #796969;
+        padding: 5px 7px;
+        border-radius: 6px;
+        color: aqua;
+    }
+
+    h1{
+        font-size: 30px;
+    }
+
 }
